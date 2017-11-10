@@ -387,6 +387,40 @@ export default {
             show: false
         })
     },
+    getBooksList({
+        commit
+    }, params = {}) {
+        services.getBooksList(params).then((result) => {
+            commit(types.BOOKS_LIST, result.data)
+        })
+    },
+    booksInfoForm: ({
+        commit
+    }, params = {}) => {
+        commit(types.BOOKS_INFO_FORMSTATE, {
+            edit: params.edit,
+            formData: params.formData
+        })
+    },
+    showBooksItemForm: ({
+        commit
+    }, params = {
+            edit: false,
+            formData: {}
+        }) => {
+        commit(types.BOOKS_ITEM_FORMSTATE, {
+            show: true,
+            edit: params.edit,
+            formData: params.formData
+        })
+    },
+    hideBooksItemForm: ({
+        commit
+    }) => {
+        commit(types.BOOKS_ITEM_FORMSTATE, {
+            show: false
+        })
+    },
     getSiteBasicInfo({
         commit
     }, params = {}) {

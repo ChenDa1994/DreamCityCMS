@@ -19,7 +19,7 @@
                         <el-dropdown-item @click.native="sysSettings">设置</el-dropdown-item>
                         <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
-                </el-dropdown>
+                </el-dropdown> 
             </el-col>
         </el-col>
         <el-col :span="24" class="main">

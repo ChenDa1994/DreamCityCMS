@@ -284,6 +284,36 @@ const state = {
             }
         }
     },
+    books: {
+        list: {
+            pageInfo: {},
+            docs: []
+        },
+        infoFormState: {
+            edit: false,
+            formData: {
+                name: '',
+                type: '1',
+                height: '',
+                comments: '',
+                items: [],
+                state: true,
+                carousel: true
+            }
+        },
+        itemFormState: {
+            show: false,
+            edit: false,
+            formData: {
+                title: '',
+                link: '',
+                width: '',
+                height: '',
+                alt: '',
+                sImg: ''
+            }
+        }
+    },
     basicInfo: {
         adminUserCount: 0,
         regUserCount: 0,
@@ -521,6 +551,33 @@ const mutations = {
             content: ''
         }, formState.formData);
 
+    },
+    [types.BOOKS_LIST](state, list) {
+        state.books.list = list
+    },
+    [types.BOOKS_INFO_FORMSTATE](state, formState) {
+        state.books.infoFormState.edit = formState.edit;
+        state.books.infoFormState.formData = Object.assign({
+            name: '',
+            type: '1',
+            height: '',
+            comments: '',
+            items: [],
+            state: true,
+            carousel: true
+        }, formState.formData);
+    },
+    [types.BOOKS_ITEM_FORMSTATE](state, formState) {
+        state.books.itemFormState.edit = formState.edit;
+        state.books.itemFormState.show = formState.show;
+        state.books.itemFormState.formData = Object.assign({
+            title: '',
+            link: '',
+            width: '',
+            height: '',
+            alt: '',
+            sImg: '',
+        }, formState.formData);
     },
     [types.ADS_LIST](state, list) {
         state.ads.list = list

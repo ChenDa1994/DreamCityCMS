@@ -72,6 +72,10 @@ export default {
                 this.$store.dispatch('getAdsList', {
                     current: val
                 });
+            } else if (this.pageType === 'books') {
+                this.$store.dispatch('getBooksList', {
+                    current: val
+                });
             }
 
         }

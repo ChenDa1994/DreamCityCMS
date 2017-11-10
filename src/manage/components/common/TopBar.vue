@@ -7,6 +7,11 @@
             <div v-else-if="type === 'adminUser'">
                 <el-button size="small" type="primary" plain @click="addUser" round><i class="fa fa-fw fa-plus"></i></el-button>
             </div>
+
+            <div v-else-if="type === 'books'">
+                <el-button type="primary" size="small" plain round @click="addBooks"><i class="fa fa-fw fa-plus"></i></el-button>
+            </div>
+
             <div v-else-if="type === 'adminResource'">
                 <el-button size="small" type="primary" plain @click="addResource" round><i class="fa fa-fw fa-plus" aria-hidden="true"></i></el-button>
             </div>
@@ -143,6 +148,13 @@ export default {
         },
         addUser() {
             this.$store.dispatch('showAdminUserForm')
+        },
+        addBooks() {
+            this.$store.dispatch('booksInfoForm', {
+                edit: false,
+                formData:{}
+            });
+            this.$router.push('/addBooks');
         },
         addRole() {
             this.$store.dispatch('showAdminGroupForm')

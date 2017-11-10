@@ -8,6 +8,9 @@ export function reqJsonData(url, params = {}, method = 'post') {
     if (method === 'get') {
         return Axios.get('/' + url, { params })
     } else if (method === 'post') {
+        console.log("9999999999999999999999999999999999");
+        console.log(url);
+        console.log(params);
         return Axios.post('/' + url, params)
     }
 
@@ -224,7 +227,26 @@ export default {
 
     delAds(params) {
         return reqJsonData('manage/ads/delete', params, 'get')
+    },
+
+    getBooksList(params) {
+        return reqJsonData('manage/books/getList', params, 'get')
+    },
+
+    getOneBook(params) {
+        return reqJsonData('manage/books/getOne', params, 'get')
+    },
+
+    addOneBook(params) {
+        console.log("1111111111111111111111111111111111111111");
+        return reqJsonData('manage/books/addOne', params)
+    },
+
+    updateBooks(params) {
+        return reqJsonData('manage/books/updateOne', params)
+    },
+
+    delBooks(params) {
+        return reqJsonData('manage/books/delete', params, 'get')
     }
-
-
 }

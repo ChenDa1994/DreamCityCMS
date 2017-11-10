@@ -15,7 +15,8 @@ const {
   SystemOptionLog,
   UserNotify,
   Notify,
-  Ads
+  Ads,
+  Books
 } = require('../lib/controller');
 const {
   service,
@@ -216,5 +217,23 @@ router.post('/ads/updateOne', authToken, authPower, Ads.updateAds);
 // 删除广告
 router.get('/ads/delete', authToken, authPower, Ads.delAds);
 
+
+/**
+ * 书籍管理
+ */
+
+router.get('/books/getList', authToken, authPower, Books.getBooks);
+
+// 获取单个广告
+router.get('/books/getOne', authToken, authPower, Books.getOneBook);
+
+// 新增广告
+router.post('/books/addOne', authToken, authPower, Books.addBooks);
+
+// 更新单个广告
+router.post('/books/updateOne', authToken, authPower, Books.updateBooks);
+
+// 删除广告
+router.get('/books/delete', authToken, authPower, Books.delBooks);
 
 module.exports = router
